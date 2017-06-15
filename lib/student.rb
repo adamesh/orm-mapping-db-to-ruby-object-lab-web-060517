@@ -27,8 +27,7 @@ class Student
       SELECT id, name, grade FROM students
       WHERE name == ?;
     SQL
-    student_stats = DB[:conn].execute(sql, name).first
-    self.new_from_db(student_stats)
+    self.execute_sql_and_return_object_array(sql, name).first
   end
 
   def save
